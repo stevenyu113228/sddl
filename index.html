@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDDL Viewer — Windows Security Descriptor parser</title>
+<meta name="description" content="Parse and decode Windows SDDL security descriptor strings in your browser. No data leaves your machine.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="top">
+    <h1>SDDL Viewer <span>Windows security descriptor decoder</span></h1>
+    <div class="links">
+      <a href="https://learn.microsoft.com/windows/win32/secauthz/security-descriptor-definition-language" target="_blank" rel="noopener">SDDL reference</a>
+      <a href="https://learn.microsoft.com/windows/win32/secauthz/ace-strings" target="_blank" rel="noopener">ACE strings</a>
+      <a href="https://learn.microsoft.com/windows/win32/secauthz/sid-strings" target="_blank" rel="noopener">SID strings</a>
+    </div>
+  </header>
+
+  <div class="input-card">
+    <div class="input-head">
+      <span class="label">SDDL string</span>
+      <div class="btn-row">
+        <button id="btn-paste" type="button">Paste</button>
+        <button id="btn-copy" type="button">Copy</button>
+        <button id="btn-clear" type="button">Clear</button>
+        <button id="btn-csv" type="button">Export CSV</button>
+        <button id="btn-download" type="button">Download JSON</button>
+      </div>
+    </div>
+
+    <textarea id="sddl-input" spellcheck="false" autocomplete="off"
+      placeholder="O:BAG:SYD:(A;;GA;;;SY)(A;;GA;;;BA)"></textarea>
+
+    <div class="examples" id="examples">
+      <span class="hint">Examples:</span>
+    </div>
+  </div>
+
+  <div id="status"></div>
+  <div id="output"></div>
+
+  <footer>
+    <span>Runs entirely in your browser. Nothing is uploaded.</span>
+    <span>Reference tables from Microsoft Learn</span>
+  </footer>
+
+</div>
+
+<div id="tooltip" role="tooltip"></div>
+
+<script src="js/sddl-data.js"></script>
+<script src="js/sddl-parser.js"></script>
+<script src="js/sddl-csv.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
